@@ -59,13 +59,16 @@ const FindPrimeUsingLoop = (n1, n2) => {
   let startTime = performance.now();
   let ans = [];
   const strategy = "BruteForce";
+
+  // here we will traverse all the numbers and check if they are prime or not
   for (let i = n1; i <= n2; i++) {
-    console.log(i);
+    // leaving 0 and 1 as they are not prime
     if (i == 0 || i == 1) {
       continue;
     } else {
       let counter = true;
 
+      // here checking till square root of i
       for (let j = 2; j * j <= i; j++) {
         if (i % j == 0) {
           counter = false;
@@ -90,21 +93,25 @@ const FindPrimeUsingSieveOfEratosthenes = (n1, n2) => {
   let elements = n2 + 1;
   const strategy = "Sieve of Eratosthenes";
 
+  // initializing boolean array of n2 + 1 elements
   let arr = new Array(elements).fill(true);
   arr[0] = false;
   arr[1] = false;
   let ans = [];
 
+  // here we will check till the square root of n2
   for (let i = 2; i * i <= n2; i++) {
     console.log(i);
 
     if (arr[i] == true) {
+      // marking the multiples of i
       for (let j = 2; i * j <= n2; j++) {
         arr[i * j] = false;
       }
     }
   }
 
+  // numbers which are not marked are the prime numbers
   for (let i = n1; i <= n2; i++) {
     if (arr[i]) {
       ans.push(i);
