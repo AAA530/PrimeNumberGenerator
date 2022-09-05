@@ -101,8 +101,6 @@ const FindPrimeUsingSieveOfEratosthenes = (n1, n2) => {
 
   // here we will check till the square root of n2
   for (let i = 2; i * i <= n2; i++) {
-    console.log(i);
-
     if (arr[i] == true) {
       // marking the multiples of i
       for (let j = 2; i * j <= n2; j++) {
